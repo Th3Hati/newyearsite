@@ -28,7 +28,7 @@ var x = setInterval(function () {
     // Если таймер истек, выведите сообщение
     if (distance < 0) {
         clearInterval(x);
-        document.getElementById("timer_countdown").innerHTML = "Время истекло!";
+        document.getElementById("timer_countdown").innerHTML = "00:00:00:00";
     }
 }, 1000); // обновление каждую секунду
 
