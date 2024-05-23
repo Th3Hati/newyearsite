@@ -1,9 +1,10 @@
-// Установите дату, до которой нужно вести обратный отсчет
-var countDownDate = new Date("Dec 31, 2023 23:59:59").getTime();
+// Получаем текущий год
+var currentYear = new Date().getFullYear();
+// Устанавливаем дату до которой нужно вести обратный отсчет на конец текущего года
+var countDownDate = new Date("Dec 31, " + currentYear + " 23:59:59").getTime();
 
 // Обновление таймера каждую секунду
 var x = setInterval(function () {
-
     // Текущая дата и время
     var now = new Date().getTime();
 
@@ -25,16 +26,15 @@ var x = setInterval(function () {
     // Вывод времени в формате "дд дней чч:мм:сс"
     document.getElementById("timer_countdown").innerHTML = days + ":" + hours + ":" + minutes + ":" + seconds;
 
-    // Если таймер истек, выведите сообщение
+    // Если таймер истек, установите новый год и обновите дату отсчета
     if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("timer_countdown").innerHTML = "00:00:00:00";
+        currentYear++;
+        countDownDate = new Date("Dec 31, " + currentYear + " 23:59:59").getTime();
     }
 }, 1000); // обновление каждую секунду
 
-
 function scrollNext() {
-    document.getElementById("next").scrollIntoView({behavior: "smooth"});
+    document.getElementById("next").scrollIntoView({ behavior: "smooth" });
 }
 
 let currentImageIndex = 1; // Индекс текущего изображения
